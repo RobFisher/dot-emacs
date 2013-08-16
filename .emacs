@@ -51,6 +51,19 @@
 ;; Avoid symlinked duplicates by writing output of find in gtags.files
 ;; but also avoid lines starting with . which are comments in this file.
 ;; run gtags in top level directory to make index files.
+;; key bindings from: http://bocaiwen.blogspot.co.uk/2012/04/customize-gtags-mode-key-binding.html
+(defun enable-gtags-mode ()
+  (gtags-mode 1)
+  (setq gtags-mode-overriding-map (make-sparse-keymap))
+  (define-prefix-command 'meta-dot-map)
+  (define-key meta-dot-map (kbd "RET") 'gtags-find-tag)
+  (define-key meta-dot-map "r" 'gtags-find-rtag)
+  (define-key meta-dot-map "p" 'gtags-find-pattern)
+  (define-key gtags-mode-overriding-map "\e." 'meta-dot-map)
+  (define-key gtags-mode-overriding-map "\e*" 'gtags-pop-stack)
+  (setq minor-mode-overriding-map-alist
+    (cons (cons 'gtags-mode gtags-mode-overriding-map) minor-mode-overriding-map-alist)))
+
 (autoload 'gtags-mode "gtags" "" t)
 
 ;; autocomplete
@@ -70,7 +83,7 @@
 ;; C mode customisation
 (setq c-mode-hook
       '(lambda ()
-         (gtags-mode 1)
+         (enable-gtags-mode)
          ))
 
 (custom-set-variables
