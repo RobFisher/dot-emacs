@@ -93,6 +93,7 @@
  ;; If there is more than one, they won't work right.
  '(c-basic-offset 4)
  '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk") (other . "linux"))))
+ '(global-cwarn-mode t)
  '(indent-tabs-mode nil)
  '(tool-bar-mode nil)
  '(which-function-mode t))
