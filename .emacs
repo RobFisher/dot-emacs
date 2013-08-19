@@ -80,10 +80,37 @@
 ;; http://log4j-mode.sourceforge.net/
 (autoload 'log4j-mode "log4j-mode" "" t)
 
+;; flymake with gccrec
+;; On flymake: http://www.emacswiki.org/emacs/FlyMake
+;; On gccrec: http://cx4a.org/software/gccsense/manual.html#gccrec
+;; Note I am using gccrec without GCCSense.
+;; I leave flymake mode off by default; enable it per buffer with
+;; M-x flymake-mode
+(defun gccrec-command (filename tempfile &rest rest)
+  (append `(,"/usr/bin/gccrec"
+            ,"-r"
+            ,"-a"
+            ,tempfile
+            ,filename
+            "-fsyntax-only")
+          rest))
+
+(defun gccrec-flymake-init ()
+  (let* ((temp-file (flymake-init-create-temp-buffer-copy
+                     'flymake-create-temp-inplace))
+         (command (gccrec-command buffer-file-name temp-file)))
+    (list (car command) (cdr command))))
+
+(defun gccrec-flymake-setup ()
+  (interactive)
+  (require 'flymake)
+  (push '("\\.\\(?:c\\|cc\\|cpp\\|cxx\\|C\\|CC\\)$" gccrec-flymake-init) flymake-allowed-file-name-masks))
+
 ;; C mode customisation
-(setq c-mode-hook
+(setq c-mode-common-hook
       '(lambda ()
          (enable-gtags-mode)
+         (gccrec-flymake-setup)
          ))
 
 (custom-set-variables
