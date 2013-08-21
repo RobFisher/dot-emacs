@@ -2,7 +2,14 @@
 ;     emacs.font:             6x13
 ; Then run xrdb -merge ~/.Xresources
 
+; For Emacs 23 on Ubuntu:
 ; sudo apt-get install emacs emacs-goodies-el cscope cscope-e
+
+; For Emacs 24 on Ubuntu:
+; https://launchpad.net/~cassou/+archive/emacs
+; sudo add-apt-repository ppa:cassou/emacs
+; sudo apt-get update
+; sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg
 
 (desktop-save-mode 1)
 
