@@ -116,6 +116,15 @@
          (gccrec-flymake-setup)
          ))
 
+;; occur from isearch
+;; http://www.emacswiki.org/emacs/OccurFromIsearch
+(defun isearch-occur ()
+  "Invoke `occur' from within isearch."
+  (interactive)
+  (let ((case-fold-search isearch-case-fold-search))
+    (occur (if isearch-regexp isearch-string (regexp-quote isearch-string)))))
+(define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
