@@ -3,7 +3,7 @@
 ; Then run xrdb -merge ~/.Xresources
 
 ; For Emacs 23 on Ubuntu:
-; sudo apt-get install emacs emacs-goodies-el cscope cscope-e
+; sudo apt-get install emacs emacs-goodies-el
 
 ; For Emacs 24 on Ubuntu:
 ; https://launchpad.net/~cassou/+archive/emacs
@@ -12,10 +12,6 @@
 ; sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg
 
 (desktop-save-mode 1)
-
-'(load-file "/usr/share/emacs/site-lisp/xcscope.el")
-(require 'xcscope)
-(set-face-attribute 'cscope-line-face nil :foreground "PaleGreen")
 
 ; http://jasonm23.github.io/emacs-theme-editor/
 (defun sweyla764430 ()
