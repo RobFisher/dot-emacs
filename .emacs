@@ -125,6 +125,23 @@
     (occur (if isearch-regexp isearch-string (regexp-quote isearch-string)))))
 (define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
 
+;; find XML hierarchy
+;; http://www.emacswiki.org/NxmlMode
+(defun nxml-where ()
+  "Display the hierarchy of XML elements the point is on as a path."
+  (interactive)
+  (let ((path nil))
+    (save-excursion
+      (save-restriction
+        (widen)
+        (while (condition-case nil
+                   (progn
+                     (nxml-backward-up-element) ; always returns nil
+                     t)       
+                 (error nil))
+          (setq path (cons (xmltok-start-tag-local-name) path)))
+        (message "/%s" (mapconcat 'identity path "/"))))))
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
