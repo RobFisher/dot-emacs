@@ -143,6 +143,9 @@
           (setq path (cons (xmltok-start-tag-local-name) path)))
         (message "/%s" (mapconcat 'identity path "/"))))))
 
+(require 'ido)
+(ido-mode t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -151,6 +154,8 @@
  '(c-basic-offset 4)
  '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk") (other . "linux"))))
  '(global-cwarn-mode t)
+ '(ido-enable-flex-matching t)
+ '(ido-everywhere t)
  '(indent-tabs-mode nil)
  '(tool-bar-mode nil)
  '(which-function-mode t))
