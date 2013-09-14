@@ -114,6 +114,7 @@
       '(lambda ()
          (enable-gtags-mode)
          (gccrec-flymake-setup)
+         (local-set-key (kbd "C-x i") 'imenu)
          ))
 
 ;; occur from isearch
