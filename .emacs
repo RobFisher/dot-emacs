@@ -121,12 +121,19 @@
   (require 'flymake)
   (push '("\\.\\(?:c\\|cc\\|cpp\\|cxx\\|C\\|CC\\)$" gccrec-flymake-init) flymake-allowed-file-name-masks))
 
+;; ido and idomenu
+;; http://www.emacswiki.org/emacs/InteractivelyDoThings
+;; http://www.emacswiki.org/emacs/idomenu.el
+(require 'ido)
+(ido-mode t)
+(autoload 'idomenu "idomenu" nil t)
+
 ;; C mode customisation
 (setq c-mode-common-hook
       '(lambda ()
          (enable-gtags-mode)
          (gccrec-flymake-setup)
-         (local-set-key (kbd "C-x i") 'imenu)
+         (local-set-key (kbd "C-x i") 'idomenu)
          ))
 
 ;; occur from isearch
@@ -154,9 +161,6 @@
                  (error nil))
           (setq path (cons (xmltok-start-tag-local-name) path)))
         (message "/%s" (mapconcat 'identity path "/"))))))
-
-(require 'ido)
-(ido-mode t)
 
 ;; Smex for enhanced M-x
 ;; https://github.com/nonsequitur/smex/
