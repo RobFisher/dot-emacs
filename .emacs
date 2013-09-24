@@ -11,6 +11,18 @@
 ; sudo apt-get update
 ; sudo apt-get install emacs24 emacs24-el emacs24-common-non-dfsg
 
+;; Give precedence to loading lisp files from ~/.emacs.d/lisp and its
+;; subdirectories.
+;; http://www.emacswiki.org/emacs/LoadPath
+(let ((default-directory "~/.emacs.d/lisp/"))
+  (setq load-path
+        (append
+         (let ((load-path (copy-sequence load-path))) ;; Shadow
+           (append 
+            (copy-sequence (normal-top-level-add-to-load-path '(".")))
+            (normal-top-level-add-subdirs-to-load-path)))
+         load-path)))
+
 (desktop-save-mode 1)
 
 ; http://jasonm23.github.io/emacs-theme-editor/
