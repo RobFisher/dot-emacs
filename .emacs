@@ -23,38 +23,15 @@
             (normal-top-level-add-subdirs-to-load-path)))
          load-path)))
 
+;; Melpa packages
+;; http://melpa.milkbox.net/#/getting-started
+;;(add-to-list 'package-archives
+;;  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 (desktop-save-mode 1)
 
-; http://jasonm23.github.io/emacs-theme-editor/
-(defun sweyla764430 ()
-  (interactive)
-  (color-theme-install
-   '(sweyla764430
-      ((background-color . "#2b2b2b")
-      (background-mode . light)
-      (border-color . "#323232")
-      (cursor-color . "#ffffff")
-      (foreground-color . "#ffffff")
-      (mouse-color . "black"))
-     (fringe ((t (:background "#323232"))))
-     (mode-line ((t (:foreground "#ffffff" :background "#323232"))))
-     (region ((t (:background "#6b6b00"))))
-     (font-lock-builtin-face ((t (:foreground "#d57fa4"))))
-     (font-lock-comment-face ((t (:foreground "#ffc36c"))))
-     (font-lock-function-name-face ((t (:foreground "#867f44"))))
-     (font-lock-keyword-face ((t (:foreground "#ffffff"))))
-     (font-lock-string-face ((t (:foreground "#bcd09b"))))
-     (font-lock-type-face ((t (:foreground"#ffffff"))))
-     (font-lock-constant-face ((t (:foreground "#ffa685"))))
-     (font-lock-variable-name-face ((t (:foreground "#ffbca3"))))
-     (minibuffer-prompt ((t (:foreground "#ffffff" :bold t))))
-     (font-lock-warning-face ((t (:foreground "red" :bold t))))
-     )))
-(provide 'sweyla764430)
-
-(require 'color-theme)
-(color-theme-initialize)
-(sweyla764430)
+;; Personal org mode settings
+(load "org-settings" nil t)
 
 ;; ibuffer mode (built in)
 ;; http://ergoemacs.org/emacs/emacs_buffer_management.html
@@ -179,6 +156,8 @@
  ;; If there is more than one, they won't work right.
  '(c-basic-offset 4)
  '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk") (other . "linux"))))
+ '(custom-enabled-themes (quote (solarized-dark)))
+ '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "46e81a0ed537c21ebe65afa0f4387515db512f9b105ccc6942b47aeec2830f32" "27b9989bc0f1d54056f5694e43974c7f43b76a464c783fd0ae1c1b2e701a2f91" "d5d42df353537000edeb4281b0e899520149ccfbdd5413273f7e0a2d5296cdd1" "c5207e7b8cc960e08818b95c4b9a0c870d91db3eaf5959dd4eba09098b7f232b" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
  '(global-cwarn-mode t)
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
@@ -190,4 +169,4 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(which-func ((t (:foreground "pale green")))))
+ )
