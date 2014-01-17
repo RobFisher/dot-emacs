@@ -156,8 +156,7 @@
  ;; If there is more than one, they won't work right.
  '(c-basic-offset 4)
  '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk") (other . "linux"))))
- '(custom-enabled-themes (quote (solarized-dark)))
- '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "46e81a0ed537c21ebe65afa0f4387515db512f9b105ccc6942b47aeec2830f32" "27b9989bc0f1d54056f5694e43974c7f43b76a464c783fd0ae1c1b2e701a2f91" "d5d42df353537000edeb4281b0e899520149ccfbdd5413273f7e0a2d5296cdd1" "c5207e7b8cc960e08818b95c4b9a0c870d91db3eaf5959dd4eba09098b7f232b" "8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" default)))
+ '(custom-theme-load-path (quote (custom-theme-directory t "~/.emacs.d/emacs-color-theme-solarized")))
  '(global-cwarn-mode t)
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
@@ -170,3 +169,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(load-theme 'solarized-dark t)
