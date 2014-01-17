@@ -101,6 +101,12 @@
   (require 'flymake)
   (push '("\\.\\(?:c\\|cc\\|cpp\\|cxx\\|C\\|CC\\)$" gccrec-flymake-init) flymake-allowed-file-name-masks))
 
+;; Display flymake errors in the message buffer instead of the GUI pop-up
+;; http://stackoverflow.com/a/2574468
+(defun flymake-display-warning (warning)
+  "Display a warning to the user, using lwarn"
+  (message warning))
+
 ;; ido and idomenu
 ;; http://www.emacswiki.org/emacs/InteractivelyDoThings
 ;; http://www.emacswiki.org/emacs/idomenu.el
@@ -165,6 +171,7 @@
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
  '(tool-bar-mode nil)
+ '(use-dialog-box nil)
  '(which-function-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
