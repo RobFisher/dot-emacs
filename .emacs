@@ -170,6 +170,7 @@
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
+ '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(use-dialog-box nil)
  '(which-function-mode t))
