@@ -44,6 +44,9 @@
 ;; but also avoid lines starting with . which are comments in this file.
 ;; run gtags in top level directory to make index files.
 ;; key bindings from: http://bocaiwen.blogspot.co.uk/2012/04/customize-gtags-mode-key-binding.html
+;; A good way to make the gtags index file is like this:
+;;   find projectdir -type f -iname '*.[ch]' > gtags.files
+;;   gtags
 (defun enable-gtags-mode ()
   (gtags-mode 1)
   (setq gtags-mode-overriding-map (make-sparse-keymap))
