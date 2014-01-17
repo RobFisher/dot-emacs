@@ -47,19 +47,9 @@
 ;; A good way to make the gtags index file is like this:
 ;;   find projectdir -type f -iname '*.[ch]' > gtags.files
 ;;   gtags
-(defun enable-gtags-mode ()
-  (gtags-mode 1)
-  (setq gtags-mode-overriding-map (make-sparse-keymap))
-  (define-prefix-command 'meta-dot-map)
-  (define-key meta-dot-map (kbd "RET") 'gtags-find-tag)
-  (define-key meta-dot-map "r" 'gtags-find-rtag)
-  (define-key meta-dot-map "p" 'gtags-find-pattern)
-  (define-key gtags-mode-overriding-map "\e." 'meta-dot-map)
-  (define-key gtags-mode-overriding-map "\e*" 'gtags-pop-stack)
-  (setq minor-mode-overriding-map-alist
-    (cons (cons 'gtags-mode gtags-mode-overriding-map) minor-mode-overriding-map-alist)))
-
-(autoload 'gtags-mode "gtags" "" t)
+;; For the Emacs interface, use xgtags.el from:
+;; http://www.emacswiki.org/emacs/xgtags.el
+(require 'xgtags)
 
 ;; autocomplete
 ;; http://cx4a.org/software/auto-complete/manual.html
@@ -117,7 +107,7 @@
 ;; C mode customisation
 (setq c-mode-common-hook
       '(lambda ()
-         (enable-gtags-mode)
+         (xgtags-mode 1)
          (gccrec-flymake-setup)
          (local-set-key (kbd "C-x i") 'idomenu)
          ))
