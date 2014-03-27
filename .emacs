@@ -170,6 +170,7 @@
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
+ '(line-number-display-limit-width 500)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(use-dialog-box nil)
