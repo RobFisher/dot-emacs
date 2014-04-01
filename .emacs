@@ -171,6 +171,7 @@
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
  '(line-number-display-limit-width 500)
+ '(mouse-yank-at-point t)
  '(scroll-bar-mode nil)
  '(tool-bar-mode nil)
  '(use-dialog-box nil)
