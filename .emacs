@@ -167,6 +167,7 @@
  '(c-default-style (quote ((java-mode . "java") (awk-mode . "awk") (other . "linux"))))
  '(custom-theme-load-path (quote (custom-theme-directory t "~/.emacs.d/emacs-color-theme-solarized")))
  '(global-cwarn-mode t)
+ '(ido-default-buffer-method (quote selected-window))
  '(ido-enable-flex-matching t)
  '(ido-everywhere t)
  '(indent-tabs-mode nil)
